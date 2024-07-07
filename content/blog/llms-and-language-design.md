@@ -1,5 +1,5 @@
 +++
-title = 'Llms and Language Design'
+title = 'LLMs and Language Design'
 date = 2024-07-07T12:17:42+10:00
 draft = true
 +++
