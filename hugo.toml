@@ -1,0 +1,15 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = "Eli's eclectic elucidations"
+theme = "hugo-bearcub"
+enableRobotsTXT = true
+[params]
+
+  # The description of your website
+  description = "Bear Cub Demo"
+
+  # This title is used as the site_name on the Hugo's internal opengraph
+  # structured data template
+  title = "Bear Cub"
+
+  themeStyle= "herman"
