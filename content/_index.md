@@ -3,11 +3,13 @@ title: "Home"
 menu: "main"
 weight: 1
 ---
-Hi, I'm a person, just like you[^1].
+Hi, I'm a person, just like you!
 
-I like making things, often with software, sometimes without.
+I make things, often with software, sometimes without.
 
 I occasionally have thoughts, and in an attempt to break the habit, I intend to occasionally write them here.
 
 
-[^1]: Who knows these days, my blog might be hot juicy natural language data ripe for the taking by the AI content machine.
+---
+
+If you're here trying to decide if I'm worth paying for all this tippitty tappity codey business I suggest you look at [what I've been making](projects)
