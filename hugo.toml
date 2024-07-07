@@ -6,10 +6,10 @@ enableRobotsTXT = true
 [params]
 
   # The description of your website
-  description = "Bear Cub Demo"
+  description = "A blog and portfolio website for Eli Dowling"
 
   # This title is used as the site_name on the Hugo's internal opengraph
   # structured data template
-  title = "Bear Cub"
+  title = "Eli's eclectic elucidations"
 
   themeStyle= "herman"
