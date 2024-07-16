@@ -2,7 +2,7 @@
   description = "Eli's personal blog";
 
   inputs = {
-    nixpkgs.url = "nixpkgs";
+    nixpkgs.url = "nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
