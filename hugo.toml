@@ -13,3 +13,10 @@ enableRobotsTXT = true
   title = "Eli's eclectic elucidations"
 
   themeStyle= "herman"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.parser]
+      wrapStandAloneImageWithinParagraph = false
+      [markup.goldmark.parser.attribute]
+        block = true
