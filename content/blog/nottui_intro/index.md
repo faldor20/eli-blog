@@ -1,7 +1,7 @@
 +++
 title = 'An introduction to Nottui, a terminal user interface library for OCaml'
 date = 2024-07-17T08:44:42+10:00
-draft = true
+draft = false
 +++
 
 # How I ended up here:
@@ -45,16 +45,29 @@ Hopefully by the end of this you'll understand all three enough to make lovely T
 
 Lwd is a library for building self-adjusting computations. It is similar to a system called [Incremental](https://github.com/janestreet/incremental) made by Jane Street ([video overview here](https://www.youtube.com/watch?v=R3xX37RGJKE)). 
 Essentially it is a way for us to make the smallest portion of the UI recompute when something changes.
-Imagine we are building a graph where all the leaves are some changeable value and when something changes all the nodes between the changed value and the root will be updated.
+Imagine we are building a graph where all the leaves are a changeable value and when something changes all the nodes between the changed value and the root (the parent of all other nodes) will be updated.
 
-If the first image represents our initial graph, the second shows the nodes that are recomputed after the bottom-left `Lwd` node changes.
+In the case of nottui the root node is the full tree of ui elements which can then be converted to text and shown to you.
 
-![ui graph](./assets/graph.svg "ui node graph")
-{width="350"}
-![ui graph invalidated](./assets/graph2.svg "ui node graph showing invalidation path from edge node to root node")
-{width="350"}
+*(The arrows indicate the parent node using the value of the child node to compute its own value)*
 
-Hopefully, these examples will help you understand. 
+This shows our graph with a single node that was changed.
+
+![ui graph](assets/graph1.1.svg "ui node graph")
+{height="300"}
+Now if we get the value of the root node, all nodes between the changed one and the root must be recomputed:
+![ui graph invalidated](./assets/graph1.2.svg "ui node graph showing invalidation path from edge node to root node")
+{height="300"}
+
+It's important to be aware that the graph isn't immediately updated when a node is changed. Instead that node is invalidated, so that it, and it's parents will be recomputed when we next get the value of the root node
+
+Nottui has a two different phases that occur during rendering: 
+1. Get the value of the root node (Which will recompute any invalidated nodes)
+2. Process events. This may invalidate some nodes which will cause them and their parents to be recomputed next update.
+
+This update cycle means that changes will occur during event processing and then be applied during the next cycle's rendering of the root node.
+
+Hopefully, some practical examples will help that all make a little more sense. 
 I'm going to include some type annotations for clarity, but they aren't necessary.
 
 ### Making a reactive counter
